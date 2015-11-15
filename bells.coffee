@@ -10,6 +10,9 @@ Channel  = require './channel.coffee'
 stdin    = process.openStdin()
 
 
+bellsWhat = 'Bells12'
+
+
 {getFileName, removeFileExtension, getFileExtension} = 
   require './file-name-utilities.coffee'
 
@@ -71,7 +74,7 @@ buildProcess = (sliceAt, duration) =>
 
 say 'Ready'
 
-console.log 'Bells 12 App Terminal :'
+console.log bellsWhat + ' App Terminal :'
 stdin.addListener 'data', (d) ->
 
   d = d.toString().trim()
@@ -100,7 +103,7 @@ stdin.addListener 'data', (d) ->
         justPlayed = d[1]
 
       else
-        play './bells12.wav'
+        play './' + bellsWhat +'.wav'
         say 'Finished playing'
 
     when 'new'
